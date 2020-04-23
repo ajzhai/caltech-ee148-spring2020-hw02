@@ -21,8 +21,6 @@ def compute_convolution(I, T, stride=1):
     for i in range(0, int(n_rows * 0.8) - T.shape[0], stride):
         for j in range(0, n_cols - T.shape[1], stride):
             window = I[i:i + T.shape[0], j:j + T.shape[1]]
-            if np.mean(window) < 0:
-                print(np.mean(window))
             heatmap[i][j] = np.sum(window * T) / 255.
 
     '''
